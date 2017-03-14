@@ -259,14 +259,40 @@
                 </section>
 
                 <section>
-                   <h1>Starting with NES Programs w/</h1>
+                   <h1>Starting with NES Programs</h1>
+                   <h3>Structure</h3>
                    <ul>
-                       <li></li>
-                       <li></li>
-                       <li></li>
-                       <li></li>
+                       <li>iNES Header</li>
+                       <li>Callback vector</li>
+                       <li>Banking</li>                       
+                       <li>Including Binary CHR/SND Files</li>
                    </ul>
-                </section>              
+                </section>
+                <section>
+                    <h2>iNES Header</h2>
+                    <p>16 byte header that gives the Nintendo (or Emulator) all the ROM info for the game.</p>
+                    <img src="img/ines.png" alt="" class="big">
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Callback Vector</h2>
+                        <p>The callback vectors begin at $FFFA, and are 2 bytes each</p>
+                        <ul>
+                            <li>NMI</li>
+                            <li>RESET</li>
+                            <li>IRQ</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="img/directives.png" alt="" class="big">
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Nintendo Mainloop</h2>
+                    <img src="img/mainloop.png" alt="" class="big">
+                </section>
 
                 <section>
                    <h1>Controller Input</h1>
@@ -274,9 +300,7 @@
                    $4017
                 </section>
 
-                <section>
-                    <h2>Nintendo Mainloop</h2>
-                </section>
+                
 
                  <section>
                    <h1>Nintendo Memory Map</h1>
