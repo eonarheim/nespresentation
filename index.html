@@ -2,13 +2,14 @@
     <head>
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/white.css">
+        <link rel="stylesheet" href="css/custom.css">
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
                 <section>
-                   <h1>NES Games in 6502<h1>
-                   <h3>Building Real Nintendo Games</h3>
+                   <h2>Building Nintendo Games<h2>
+                   <img class="image medium" src="img/mario.gif">
 
                    <p>
                      <small><a href="https://erikonarheim.com">Erik Onarheim</a> / <a href="http://twitter.com/ErikOnarheim">@ErikOnarheim</a></small>
@@ -16,17 +17,24 @@
                 </section>
 
                 <section>
-                   <h1>A bit about me</h1>
-                   <ul>
-                      <li>DevOps Engineer</li>
-                      <li>Game Enthusiast</li>
-                      <li>Excalibur</li>
-                      
-                   </ul>
+                   <h2>A bit about me</h2>
+                   <hr>
+
+                    <img class="left image" style="width: 20%;" src="img/avatar.gif">
+                    <div class="left" style="width: 70%">
+                        <p class="fragment">DevOps Engineer</p>
+                        <p class="fragment">Software Developer</p>                        
+                        <p class="fragment">Video Game Enthusiast</p>
+                        <div class="fragment">
+                            <img class="no-border small" src="img/logo.png">
+                        </div>
+                    </div>
                 </section>
 
+                <section data-background="img/nes.png" data-background-size="40%"></section>
+
                 <section>
-                   <h1>Brief History</h1>
+                   <h2>Brief History</h2>
                    <ul>
                      <li>Released in 1985 in the US</li>
                      <li>Revived the industry after 1983 crash</li>
@@ -36,44 +44,229 @@
                 </section>
                 
                 <section>
-                   <h1>Nintendo Hardware</h1>
+                   <h2>Hardware</h2>
                    <ul>
-                      <li>6502 8-bit Processor @ MHz</li>
-                      <li>16-bit Memory address space ($0000-$FFFF) (65kb)</li>
-                      <li>Custom PPU wit 2kb of video RAM w/ 48colors</li>
-                      <li>Display 256 pixels x 240</li>
+                      <li>6502 <span class="fragment highlight-red" data-fragment-index="1">8-bit processor</span> @ 1.79 MHz</li>
+                      <li><span class="fragment highlight-red" data-fragment-index="2">16-bit mem address bus</span> (65kb)</li>
+                      <li>Custom PPU wit 2kb of video RAM w/ <span class="fragment highlight-red">48 colors</span></li>
+                      <li>Display 256 pixels x 240 pixels</li>
                       <li>Custom APU</li>
                       <li>10NES Lockout chip</li>
                    </ul>                 
 
-                </section>
+                </section>               
 
                 <section>
-                   <h1>Processor 6502</h1>
+                   <h2>Processor 6502</h2>                   
+                   <img class="small no-border" src="img/6502.jpg">
+                   <br>
                    <ul>
-                      <li>Popular cheap processor</li>
-                      <li>Commodore 64</li>
-                      <li>BBC Micro</li>
-                      <li>Texas Instruments Calculators</li>
+                      <li class="fragment">Popular cheap processor</li>
+                      <li class="fragment">Commodore 64</li>
+                      <li class="fragment">Atari 2600</li>
+                      <li class="fragment">Apple II</li>
+                      <li class="fragment">Tamagotchi</li>
+                      <li class="fragment">And...</li>
                    </ul>
                 </section>
 
-                <section>
-                   <h1>Hexidecimal Primer</h1>
+                <section data-background="img/terminator.gif"></section>
 
+                <section data-background="img/nespcb.png" data-background-size="80%"></section>
+
+                <section>
+                   <section>
+                    <h3>Hexidecimal Primer</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Decimal</th>
+                                <th>Binary</th>
+                                <th>Hexidecimal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0</td>
+                                <td>0000 0000</td>
+                                <td>0x00</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>0000 0001</td>
+                                <td>0x01</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>0000 0010</td>
+                                <td>0x02</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>0000 0011</td>
+                                <td>0x03</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>0000 0100</td>
+                                <td>0x04</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>0000 0101</td>
+                                <td>0x05</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>0000 0110</td>
+                                <td>0x06</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                   </section>
+                   <section>
+                       <table>
+                            <tr>
+                                <td>7</td>
+                                <td>0000 0111</td>
+                                <td>0x07</td>
+                            </tr>
+                           <tr>
+                                <td>8</td>
+                                <td>0000 1000</td>
+                                <td>0x08</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>0000 1001</td>
+                                <td>0x09</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>0000 1010</td>
+                                <td>0x0A</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>0000 1011</td>
+                                <td>0x0B</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>0000 1100</td>
+                                <td>0x0C</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>0000 1101</td>
+                                <td>0x0D</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>0000 1110</td>
+                                <td>0x0E</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>0000 1111</td>
+                                <td>0x0F</td>
+                            </tr>
+                       </table>
+                   </section>
+                </section>
+                <section>
+                    <h2>6502 Assembler (NESASM3)</h2>
+                    <img src="img/assembly.png" class="large no-border">
                 </section>
 
                 <section>
-                   <h1>Opcodes</h1>
+                    <h2>Numbers</h2>
+                    <ul>
+                        <li class="fragment">$00        - Zero page address</li>
+                        <li class="fragment">$0200      - 16 bit address</li>
+                        <li class="fragment">#$0F       - Hexidecimal literal </li>
+                        <li class="fragment">#%10001010 - Binary literal</li>
+                    </ul>
                 </section>
 
                 <section>
-                   <h1>Simple 6502 Programs</h1>
+                    <h2>Registers</h2>
+                    <ul>
+                        <li class="fragment">A - Accumulator Register</li>
+                        <li class="fragment">X - Index Register X</li>
+                        <li class="fragment">Y - Index Register Y</li>
+                        <li class="fragment">Status Register</li>
+                    </ul>
                 </section>
 
                 <section>
-                   <h1>Nintendo Memory Map</h1>
-                </section>                
+                    <h3>Opcodes and Labels</h3>
+                    <img src="img/initialize.png" alt="" class="big">
+                </section>
+
+                <section>
+                    <h3>Directives and Labels</h3>
+                    <img src="img/directives.png" alt="" class="bigger">
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Loading and Storing</h2>
+                        <ul>
+                            <li class="fragment">LDA #$0F</li>
+                            <li class="fragment">LDX $01</li>
+                            <li class="fragment">LDY $4016</li>
+
+                            <li class="fragment">STA $2000</li>
+                            <li class="fragment">STX $00</li>
+                            <li class="fragment">STY $00</li>
+                        </ul> 
+                    </section>
+                    <section>
+                        <h3>Arithmetic</h3>
+                        <ul>
+                            <li class="fragment">ADC #$01  | A = A + $01 + carry</li>
+                            <li class="fragment">CLC       | Clear carry</li>
+                            <li class="fragment">SBC #$08  | A = A - $08 - (1 - carry)</li>
+                            <li class="fragment">SEC       | Set carry</li>
+                            <li class="fragment">INC $0100 | Increment value stored by 1</li>
+                            <li class="fragment">DEC $0001 | Decrement value stored by 1</li>
+                            <li class="fragment">INX       | X = X + 1</li>
+                            <li class="fragment">DEX       | X = X - 1</li>
+                            <li class="fragment">ASL A     | Shift left 1 bit, quick x2</li>
+                            <li class="fragment">LSR A     | Shift right 1 bit, quick /2</li>
+
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Comparison</h2>
+                        <ul>
+                            <li class="fragment">CMP #$00 | Compare A to the value $01</li>
+                            <li class="fragment">CPX $01  | Compare X to the value stored in addr $01</li>
+                            <li class="fragment">CPY #%10101010 | Compare Y to the binary literal</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Flow Control</h2>
+                        <ul>
+                            <li class="fragment">JMP $8500</li>
+                            <li class="fragment">BEQ $FF00</li>
+                            <li class="fragment">BNE $FF00</li>
+                            <li class="fragment">JSR MyFunctionLabel</li>
+                            <li class="fragment">RTS</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                   <h1>Starting with NES Programs w/</h1>
+                   <ul>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                   </ul>
+                </section>              
 
                 <section>
                    <h1>Controller Input</h1>
@@ -82,7 +275,16 @@
                 </section>
 
                 <section>
+                    <h2>Nintendo Mainloop</h2>
+                </section>
+
+                 <section>
+                   <h1>Nintendo Memory Map</h1>
+                </section>                
+
+                <section>
                    <h1>The PPU</h1>
+                   Load sprites into memory from your ROM
                    Draws sprites and places sprites
 
                 </section>
@@ -151,6 +353,8 @@
                    Nerdy Nights Tutorials
 
                 </section>
+
+                <section data-background="img/thumbsup.gif"><h1 style="color: white">Thanks!</h1></section>
                 
             </div>
         </div>
@@ -168,7 +372,7 @@
             slideNumber: false,
 
             // Push each slide change to the browser history
-            history: false,
+            history: true,
 
             // Enable keyboard shortcuts for navigation
             keyboard: true,

@@ -1,0 +1,86 @@
+canvas {
+   background: black;
+}
+:unresolved {
+ border: 1px dashed red;
+ display: inline-block;
+}
+
+custom-element:unresolved {
+   color: red;  
+}
+
+custom-element {
+   color: green;
+}
+
+.white {
+   color: white !important;
+}
+
+.small {
+   width: 30%;
+}
+
+.medium {
+   width: 40%;
+}
+
+.short {
+   height: 300px;
+}
+
+.tall {
+   height: 500px;
+}
+
+.taller {
+   height: 700px;
+}
+
+.big {
+   width: 60%;
+}
+
+.bigger {
+   width: 80%;
+}
+
+.biggest {
+   width: 100%;
+}
+
+.left {
+   float: left;
+}
+
+.right {
+   float: right;
+}
+
+.left .image {
+   height: 50%;
+}
+
+.pink {
+   color: #CC9393;
+}
+
+.big-font {
+   font-size: 140% !important;
+   font-weight: normal !important;
+}
+
+.no-border {
+   border: none !important;
+   box-shadow: none !important;
+   background: none !important;
+}
+
+.text-left{
+   text-align: left !important;
+}
+
+.text-right{
+   text-align: right !important;
+}
