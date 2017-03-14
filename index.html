@@ -1,0 +1,255 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                   <h1>NES Games in 6502<h1>
+                   <h3>Building Real Nintendo Games</h3>
+
+                   <p>
+                     <small><a href="https://erikonarheim.com">Erik Onarheim</a> / <a href="http://twitter.com/ErikOnarheim">@ErikOnarheim</a></small>
+                  </p>
+                </section>
+
+                <section>
+                   <h1>A bit about me</h1>
+                   <ul>
+                      <li>DevOps Engineer</li>
+                      <li>Game Enthusiast</li>
+                      <li>Excalibur</li>
+                      
+                   </ul>
+                </section>
+
+                <section>
+                   <h1>Brief History</h1>
+                   <ul>
+                     <li>Released in 1985 in the US</li>
+                     <li>Revived the industry after 1983 crash</li>
+                     <li>"Official Nintendo Seal of Quality"</li>                     
+                   <ul>
+
+                </section>
+                
+                <section>
+                   <h1>Nintendo Hardware</h1>
+                   <ul>
+                      <li>6502 8-bit Processor @ MHz</li>
+                      <li>16-bit Memory address space ($0000-$FFFF) (65kb)</li>
+                      <li>Custom PPU wit 2kb of video RAM w/ 48colors</li>
+                      <li>Display 256 pixels x 240</li>
+                      <li>Custom APU</li>
+                      <li>10NES Lockout chip</li>
+                   </ul>                 
+
+                </section>
+
+                <section>
+                   <h1>Processor 6502</h1>
+                   <ul>
+                      <li>Popular cheap processor</li>
+                      <li>Commodore 64</li>
+                      <li>BBC Micro</li>
+                      <li>Texas Instruments Calculators</li>
+                   </ul>
+                </section>
+
+                <section>
+                   <h1>Hexidecimal Primer</h1>
+
+                </section>
+
+                <section>
+                   <h1>Opcodes</h1>
+                </section>
+
+                <section>
+                   <h1>Simple 6502 Programs</h1>
+                </section>
+
+                <section>
+                   <h1>Nintendo Memory Map</h1>
+                </section>                
+
+                <section>
+                   <h1>Controller Input</h1>
+                   $4016
+                   $4017
+                </section>
+
+                <section>
+                   <h1>The PPU</h1>
+                   Draws sprites and places sprites
+
+                </section>
+
+                <section>
+                   <h1>Controlling the PPU</h1>
+                   PPU memory ports
+                   $2000-$2007                   
+                </section>
+                
+                <section>
+                   <h1>Drawing Sprites</h1>
+                   $0200-$0203 4 bytes each
+                   Vertical
+                   Tile
+                   Attribute
+                   Horizontal
+                </section>
+
+                <section>
+                   <h1>Sprite Layout</h1>
+                </section>
+
+                <section>
+                   <h1>Loading sprites into the PPU with DMA</h1>
+                </section>
+
+                <section>
+                   <h1>Character Sprites</h1>
+                </section>
+
+                <section>
+                   <h1>Background Sprites</h1>
+                </section>
+
+                <section>
+                   <h1>Name Table</h1>
+                   There are 4 name tables, but only really 2
+                   Background layout 32x30 = 960 bytes
+                </section>
+
+                <section>
+                   <h1>Attribute Table</h1>
+                   Determine the colors of the background sprites
+                </section>
+
+                <section>
+                   <h1>The APU</h1>
+                   5 voices
+                   2 square
+                   1 triangle
+                   1 noise
+                   1 PCM sample
+                </section>
+
+                <section>
+                   <h1>Nintendo ROM Layout</h1>
+                   PRG Rom
+                   CHR Rom
+                </section>
+
+                <section>
+                   <h1>Resources</h1>
+                   NESASM3
+                   Erik's Sprite Editor
+                   Nerdy Nights Tutorials
+
+                </section>
+                
+            </div>
+        </div>
+        <script src="js/reveal.js"></script>
+        <script>
+            Reveal.initialize({
+
+            // Display controls in the bottom right corner
+            controls: true,
+
+            // Display a presentation progress bar
+            progress: true,
+
+            // Display the page number of the current slide
+            slideNumber: false,
+
+            // Push each slide change to the browser history
+            history: false,
+
+            // Enable keyboard shortcuts for navigation
+            keyboard: true,
+
+            // Enable the slide overview mode
+            overview: true,
+
+            // Vertical centering of slides
+            center: true,
+
+            // Enables touch navigation on devices with touch input
+            touch: true,
+
+            // Loop the presentation
+            loop: false,
+
+            // Change the presentation direction to be RTL
+            rtl: false,
+
+            // Randomizes the order of slides each time the presentation loads
+            shuffle: false,
+
+            // Turns fragments on and off globally
+            fragments: true,
+
+            // Flags if the presentation is running in an embedded mode,
+            // i.e. contained within a limited portion of the screen
+            embedded: false,
+
+            // Flags if we should show a help overlay when the questionmark
+            // key is pressed
+            help: true,
+
+            // Flags if speaker notes should be visible to all viewers
+            showNotes: false,
+
+            // Number of milliseconds between automatically proceeding to the
+            // next slide, disabled when set to 0, this value can be overwritten
+            // by using a data-autoslide attribute on your slides
+            autoSlide: 0,
+
+            // Stop auto-sliding after user input
+            autoSlideStoppable: true,
+
+            // Use this method for navigation when auto-sliding
+            autoSlideMethod: Reveal.navigateNext,
+
+            // Enable slide navigation via mouse wheel
+            mouseWheel: false,
+
+            // Hides the address bar on mobile devices
+            hideAddressBar: true,
+
+            // Opens links in an iframe preview overlay
+            previewLinks: false,
+
+            // Transition style
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Transition speed
+            transitionSpeed: 'default', // default/fast/slow
+
+            // Transition style for full page slide backgrounds
+            backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+            // Number of slides away from the current that are visible
+            viewDistance: 3,
+
+            // Parallax background image
+            parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+            // Parallax background size
+            parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+            // Number of pixels to move the parallax background per slide
+            // - Calculated automatically unless specified
+            // - Set to 0 to disable movement along an axis
+            parallaxBackgroundHorizontal: null,
+            parallaxBackgroundVertical: null
+
+         });
+        </script>
+    </body>
+</html>
