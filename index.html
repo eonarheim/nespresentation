@@ -298,13 +298,13 @@
                         </ul>
                     </section>
                     <section>
-                        <img src="img/directives.png" alt="" class="big">
+                        <img src="img/directives.png" alt="" class="bigger">
                     </section>
                 </section>
 
                 <section>
                     <h2>Nintendo Mainloop</h2>
-                    <img src="img/mainloop.png" alt="" class="big">
+                    <img src="img/mainloop.png" alt="" class="bigger">
                 </section>
 
                 <section>
@@ -313,67 +313,112 @@
                        <li>Controller 1 Port $4016</li>
                        <li>Controller 2 Port $4017</li>
                    </ul>
-
+                   <div>TODO Fix ROL comment ROL shifts all bits left one position. The Carry is shifted into bit 0 and the original bit 7 is shifted into the Carry.</div>
                    <img src="img/pollcontroller.png" alt="" class="big">
 
-                </section>
-                                
-                <section>
-                   <h1>The PPU</h1>
-                   Load sprites into memory from your ROM
-                   Draws sprites and places sprites
-
+                 </section>
+                 <section>
+                   <h3>Nintendo Memory Map</h3>
+                   <img src="img/cpumemmap.png" class="medium">
                 </section>
 
                 <section>
-                   <h1>Controlling the PPU</h1>
-                   PPU memory ports
-                   $2000-$2007                   
+                   <h3>The PPU</h3>
+                   <p class="fragment">Load sprites into memory from ROM</p>
+                   <p class="fragment">Draws sprites and places sprites</p>
+                </section>
+
+                <section>
+                   <h3>Controlling the PPU</h3>
+                   <ul>
+                       <li>$2000 - PPUCTRL</li>
+                       <li>$2001 - PPUMASK</li>
+                       <li>$2002 - PPUSTATUS</li>
+                       <li>$2003 - OAMADDR</li>
+                       <li>$2004 - OAMDATA</li>
+                       <li>$2005 - PPUSCROLL</li>
+                       <li>$2006 - PPUADDR</li>
+                       <li>$2007 - PPUDATA</li>
+                   </ul>
+                </section>
+
+                <section>
+                    <h3>Sprites</h3>
+                    <p>8x8 pixels a piece</p>
+                    <p>TODO IMAGE</p>
                 </section>
                 
                 <section>
-                   <h1>Drawing Sprites</h1>
-                   $0200-$0203 4 bytes each
-                   Vertical
-                   Tile
-                   Attribute
-                   Horizontal
+                   <h3>Character Sprites</h3>
+                   <ul>
+                       <li class="fragment">Drawn in the foreground</li>
+                       <li class="fragment">Think Mario, Koopa, Mega Man</li>
+                   </ul>
                 </section>
 
                 <section>
-                   <h1>Sprite Layout</h1>
+                   <h3>Loading sprites into the PPU with DMA</h3>
+                   <p>TOD DMA LOADING CODE</p>
                 </section>
 
                 <section>
-                   <h1>Loading sprites into the PPU with DMA</h1>
+                   <h3>Sprite Image Binary Layout</h3>
+                   <p>TODO BINARY FORMAT</p>
                 </section>
 
                 <section>
-                   <h1>Character Sprites</h1>
+                   <h3>Drawing Sprites</h3>
+                   <p> Starting $0200-$02FF each sprite draw is defined 4 bytes</p>
+                   <ul class="fragment">
+                       <li>Vertical</li>
+                       <li>Tile Index</li>
+                       <li>Attribute</li>
+                       <li>Horizontal</li>
+                   </ul>
                 </section>
 
                 <section>
-                   <h1>Background Sprites</h1>
+                   <h1>Background Sprites</h1>                 
+                </section>                
+
+                <section>
+                   <h3>Name Table</h3>
+                   <p>There are 4 name tables, but only really 2</p>
+                   </p>Background layout 32x30 = 960 bytes</p>
+                   <p>TODO PICTURE</p>
+                   <script type="text/template">
+     (0,0)     (256,0)     (511,0)
+       +-----------+-----------+
+       |           |           |
+       |           |           |
+       |   $2000   |   $2400   |
+       |           |           |
+       |           |           |
+(0,240)+-----------+-----------+(511,240)
+       |           |           |
+       |           |           |
+       |   $2800   |   $2C00   |
+       |           |           |
+       |           |           |
+       +-----------+-----------+
+     (0,479)   (256,479)   (511,479)
+                   </script>
                 </section>
 
                 <section>
-                   <h1>Name Table</h1>
-                   There are 4 name tables, but only really 2
-                   Background layout 32x30 = 960 bytes
-                </section>
-
-                <section>
-                   <h1>Attribute Table</h1>
+                   <h3>Attribute Table</h3>
                    Determine the colors of the background sprites
                 </section>
 
                 <section>
                    <h1>The APU</h1>
-                   5 voices
-                   2 square
-                   1 triangle
-                   1 noise
-                   1 PCM sample
+                   <ul>
+                       <li class="fragment">5 voices</li>
+                       <li class="fragment">2 square</li>
+                       <li class="fragment">1 triangle</li>
+                       <li class="fragment">1 noise</li>
+                       <li class="fragment">1 PCM sample</li>
+                   </ul>
                 </section>
 
                 <section>
@@ -383,11 +428,17 @@
                 </section>
 
                 <section>
-                   <h1>Resources</h1>
-                   NESASM3
-                   Erik's Sprite Editor
-                   Nerdy Nights Tutorials
-
+                   <h3>Resources</h3>
+                   <ul>
+                       <li>
+                           <a href="https://wiki.nesdev.com/">NES Reference</a>
+                           <a href="https://wiki.nesdev.com/w/index.php/PPU_programmer_reference">PPU Reference</a>
+                           <a href="">NESASM3</a>
+                           <a href="">Erik's Sprite Editor</a>
+                           <a href="">Nerdy Nights Tutorials</a>
+                           <a href=""></a>
+                       </li>
+                   </ul>
                 </section>
 
                 <section data-background="img/thumbsup.gif"><h1 style="color: white">Thanks!</h1></section>
@@ -397,6 +448,15 @@
         <script src="js/reveal.js"></script>
         <script>
             Reveal.initialize({
+            /*
+            dependencies: [
+                // Interpret Markdown in <section> elements
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+                // Syntax highlight for <code> elements
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            ],*/
 
             // Display controls in the bottom right corner
             controls: true,
