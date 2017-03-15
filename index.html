@@ -200,6 +200,11 @@
                 </section>
 
                 <section>
+                    <h3>Variables</h3>
+                    <img src="img/variables.png" alt="" class="bigger">
+                </section>
+
+                <section>
                     <h3>Opcodes and Labels</h3>
                     <img src="img/initialize.png" alt="" class="big">
                 </section>
@@ -241,9 +246,11 @@
                     <section>
                         <h2>Comparison</h2>
                         <ul>
+                            <li>TODO COMPARE FLAG</li>
                             <li class="fragment">CMP #$00 | Compare A to the value $01</li>
                             <li class="fragment">CPX $01  | Compare X to the value stored in addr $01</li>
                             <li class="fragment">CPY #%10101010 | Compare Y to the binary literal</li>
+
                         </ul>
                     </section>
                     <section>
@@ -268,6 +275,12 @@
                        <li>Including Binary CHR/SND Files</li>
                    </ul>
                 </section>
+
+                 <section>
+                   <h2>Nintendo Memory Map</h2>
+                   <img src="img/cpumemmap.png" class="big">
+                </section>                
+
                 <section>
                     <h2>iNES Header</h2>
                     <p>16 byte header that gives the Nintendo (or Emulator) all the ROM info for the game.</p>
@@ -295,17 +308,16 @@
                 </section>
 
                 <section>
-                   <h1>Controller Input</h1>
-                   $4016
-                   $4017
+                   <h2>Controller Input</h2>
+                   <ul>
+                       <li>Controller 1 Port $4016</li>
+                       <li>Controller 2 Port $4017</li>
+                   </ul>
+
+                   <img src="img/pollcontroller.png" alt="" class="big">
+
                 </section>
-
-                
-
-                 <section>
-                   <h1>Nintendo Memory Map</h1>
-                </section>                
-
+                                
                 <section>
                    <h1>The PPU</h1>
                    Load sprites into memory from your ROM
