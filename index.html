@@ -313,7 +313,6 @@
                        <li>Controller 1 Port $4016</li>
                        <li>Controller 2 Port $4017</li>
                    </ul>
-                   <div>TODO Fix ROL comment ROL shifts all bits left one position. The Carry is shifted into bit 0 and the original bit 7 is shifted into the Carry.</div>
                    <img src="img/pollcontroller.png" alt="" class="big">
 
                  </section>
@@ -345,25 +344,84 @@
                 <section>
                     <h3>Sprites</h3>
                     <p>8x8 pixels a piece</p>
-                    <p>TODO IMAGE</p>
+                    <img src="img/sprites.png" alt="">
                 </section>
                 
                 <section>
                    <h3>Character Sprites</h3>
                    <ul>
-                       <li class="fragment">Drawn in the foreground</li>
-                       <li class="fragment">Think Mario, Koopa, Mega Man</li>
+                       <li class="fragment">Drawn in the foreground, like Mario</li>
                    </ul>
+                   <img src="img/bandit.gif" alt="" class="medium fragment">
                 </section>
 
                 <section>
                    <h3>Loading sprites into the PPU with DMA</h3>
-                   <p>TOD DMA LOADING CODE</p>
+                   <img src="img/loadspritesfromrom.png" alt=""><img src="img/loadspritesfromdma" alt="">
                 </section>
 
                 <section>
-                   <h3>Sprite Image Binary Layout</h3>
-                   <p>TODO BINARY FORMAT</p>
+                    <section>
+                        <h3>Sprite Image Binary Layout (16 bytes)</h3>
+                        <img src="img/tile.png" alt="">
+                        <img src="img/colors.png" alt="">
+                   </section>
+                   <section>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Channel 1</th>
+                                    <th>Channel 2</th>
+                                    <th>Color</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                </tr>
+                                <tr>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                </tr>
+                                <tr>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                </tr>
+                                <tr>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                    <td>0000 0000</td>
+                                </tr>
+                                <tr>
+                                    <td>0000 0000</td>
+                                    <td>0000 0<span >111</span></td>
+                                    <td>0000 0<span style="color:blue">222</span></td>
+                                </tr>
+                                <tr>
+                                    <td>0000 0111</td>
+                                    <td>0000 1000</td>
+                                    <td>0000 <span style="color:blue">2</span><span style="color:aqua">111</span></td>
+                                </tr>
+                                <tr>
+                                    <td>0000 1111</td>
+                                    <td>0001 0000</td>
+                                    <td>000<span style="color:blue">2</span> <span style="color:aqua">1111</span></td>
+                                </tr>
+                                <tr>
+                                    <td>0000 1111</td>
+                                    <td>0001 0000</td>
+                                    <td>000<span style="color:blue">2</span> <span style="color:aqua">1111</span></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                   </section>
                 </section>
 
                 <section>
@@ -378,53 +436,33 @@
                 </section>
 
                 <section>
-                   <h1>Background Sprites</h1>                 
+                   <h1>Background Sprites</h1>
                 </section>                
 
                 <section>
                    <h3>Name Table</h3>
                    <p>There are 4 name tables, but only really 2</p>
-                   </p>Background layout 32x30 = 960 bytes</p>
-                   <p>TODO PICTURE</p>
-                   <script type="text/template">
-     (0,0)     (256,0)     (511,0)
-       +-----------+-----------+
-       |           |           |
-       |           |           |
-       |   $2000   |   $2400   |
-       |           |           |
-       |           |           |
-(0,240)+-----------+-----------+(511,240)
-       |           |           |
-       |           |           |
-       |   $2800   |   $2C00   |
-       |           |           |
-       |           |           |
-       +-----------+-----------+
-     (0,479)   (256,479)   (511,479)
+                   <p>Background layout 32x30 = 960 bytes</p>
+                   
+                   
                    </script>
                 </section>
 
                 <section>
-                   <h3>Attribute Table</h3>
-                   Determine the colors of the background sprites
+                    <section>
+                        <h3>Attribute Table</h3>
+                        <p>Determine the colors of the background sprites</p>
+                        <p>32x32 grid</p>
+                        <img src="img/grid.png" alt="">
+                    </section>
+                    <section>
+                        <h3>Attribute Table Byte</h3>
+                        <img src="img/attribute.png" alt="">
+                    </section>
                 </section>
 
                 <section>
-                   <h1>The APU</h1>
-                   <ul>
-                       <li class="fragment">5 voices</li>
-                       <li class="fragment">2 square</li>
-                       <li class="fragment">1 triangle</li>
-                       <li class="fragment">1 noise</li>
-                       <li class="fragment">1 PCM sample</li>
-                   </ul>
-                </section>
-
-                <section>
-                   <h1>Nintendo ROM Layout</h1>
-                   PRG Rom
-                   CHR Rom
+                    <h1>Demo!</h1>
                 </section>
 
                 <section>
@@ -432,11 +470,21 @@
                    <ul>
                        <li>
                            <a href="https://wiki.nesdev.com/">NES Reference</a>
+                       </li>
+                       <li>                           
                            <a href="https://wiki.nesdev.com/w/index.php/PPU_programmer_reference">PPU Reference</a>
-                           <a href="">NESASM3</a>
+                       </li>
+                       <li>
+                           <a href="http://www.nespowerpak.com/nesasm/">NESASM3</a>
+                       </li>
+                       <li>
                            <a href="">Erik's Sprite Editor</a>
-                           <a href="">Nerdy Nights Tutorials</a>
-                           <a href=""></a>
+                       </li>
+                       <li>
+                           <a href="https://hexed.it/">hexed.it</a>
+                       </li>
+                       <li>
+                           <a href="http://nintendoage.com/forum/messageview.cfm?catid=22&threadid=7155">Nerdy Nights Tutorials</a>
                        </li>
                    </ul>
                 </section>
