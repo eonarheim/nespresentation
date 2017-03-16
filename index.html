@@ -357,7 +357,10 @@
 
                 <section>
                    <h3>Loading sprites into the PPU with DMA</h3>
-                   <img src="img/loadspritesfromrom.png" alt=""><img src="img/loadspritesfromdma" alt="">
+                   <p>Usually $0200-$02FF, but other space could be used</p>
+                   <img src="img/loadspritesfromrom.png" alt="">
+                   <p>($4014 is on the CPU)</p>
+                   <img src="img/loadspritesdma.png" alt="">
                 </section>
 
                 <section>
@@ -425,14 +428,20 @@
                 </section>
 
                 <section>
-                   <h3>Drawing Sprites</h3>
-                   <p> Starting $0200-$02FF each sprite draw is defined 4 bytes</p>
-                   <ul class="fragment">
-                       <li>Vertical</li>
-                       <li>Tile Index</li>
-                       <li>Attribute</li>
-                       <li>Horizontal</li>
-                   </ul>
+                    <section>
+                        <h3>Drawing Sprites</h3>
+                        <p> Starting $0200-$02FF each sprite draw is defined 4 bytes</p>
+                        <ul class="fragment">
+                            <li>Vertical - $00 is the top, $EF is the bottom</li>
+                            <li>Tile Index</li>
+                            <li>Attribute <br><img src="img/spriteattribute.png" alt=""></li>
+                            <li>Horizontal - $00 is the left, $F5 is the right</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Example</h3>
+                        <img src="img/spriteexample.png" alt="" class="bigger">
+                    </section>
                 </section>
 
                 <section>
@@ -443,8 +452,6 @@
                    <h3>Name Table</h3>
                    <p>There are 4 name tables, but only really 2</p>
                    <p>Background layout 32x30 = 960 bytes</p>
-                   
-                   
                    </script>
                 </section>
 
@@ -452,6 +459,7 @@
                     <section>
                         <h3>Attribute Table</h3>
                         <p>Determine the colors of the background sprites</p>
+                        <p>64 bytes after each nametable</p>
                         <p>32x32 grid</p>
                         <img src="img/grid.png" alt="">
                     </section>
@@ -478,7 +486,7 @@
                            <a href="http://www.nespowerpak.com/nesasm/">NESASM3</a>
                        </li>
                        <li>
-                           <a href="">Erik's Sprite Editor</a>
+                           <a href="https://erikonarheim.com/NES-Sprite-Editor/">Erik's Sprite Editor</a>
                        </li>
                        <li>
                            <a href="https://hexed.it/">hexed.it</a>
